@@ -1,0 +1,41 @@
+<div ng-controller="example">
+  <h2>
+    Add Company</h2>
+  <div>
+    <span>Name: </span>
+    <input type="text" id="name" required [(ngModel)]="company.name" name="name">
+  </div>
+  <div>
+    <span>Address: </span>
+    <input type="text" id="address" required [(ngModel)]="company.address" name="adress">
+  </div>
+  <div>
+    <span>City: </span>
+    <input type="text" id="city" required [(ngModel)]="company.city" name="city">
+  </div>
+  <div>
+    <span>Zip code: </span>
+    <input type="text" id="zipCode" required [(ngModel)]="company.zipCode" name="zipCode">
+  </div>
+  <div>
+    <span>Nip: </span>
+    <input type="text" id="nip" required [(ngModel)]="company.nip" name="nip">
+  </div>
+  <div>
+    <span>Bank account number: </span>
+    <input type="text" id="bankAccoutNumber" required [(ngModel)]="company.bankAccoutNumber" name="bankAccoutNumber">
+  </div>
+  <div>
+    <span>Tax type: </span>
+    <select id="taxType" required [(ngModel)]="company.taxType" name="taxType">
+      <option *ngFor="let taxt of taxes" [value]="taxt">{{taxt}}</option>
+    </select>
+  </div>
+  <div>
+    <span>Personal car usage: </span>
+    <select id="personalCarUsage" required [(ngModel)]="company.personalCarUsage" name="personalCarUsage">
+      <option *ngFor="let tf of trueFalse" [value]="tf">{{tf}}</option>
+    </select>
+  </div>
+</div>
+<button (click)="add(company)">Add Company</button>

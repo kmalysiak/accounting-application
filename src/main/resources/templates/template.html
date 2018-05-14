@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:remove="all">GreenTeam Invoice</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+  <style type="text/css">
+    h1 {
+      font-size: 32px;
+      color: #444444 !important;
+      font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: 15px;
+      color: #444444 !important;
+      font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+      line-height: 0.8;
+    }
+
+    h3 {
+      font-size: 20px;
+      color: #444444 !important;
+      font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+      line-height: 0.6;
+    }
+
+    p {
+      font-size: 16px;
+      color: #ffffff;
+      font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+      line-height: 1.5;
+    }
+
+    table {
+      border-spacing: 2px;
+      border-top: 1px solid #e4e4e4;
+      border-right: 1px solid #e4e4e4;
+      border-left: 1px solid #e4e4e4;
+    }
+
+    a {
+      color: #062b67;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="0095cc">
+  <tr>
+    <td height="100" align="center"><p th:text="${header}"></p></td>
+  </tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0">
+  <tr bgcolor="ffffff">
+    <td height="50" align="right"><h3 th:text="'Issue Date'+${issueDate}"></h3>
+      <h3 th:text="'Payment date'+${paymentDate}"></h3></td>
+  </tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0">
+  <tr bgcolor="ffffff">
+    <td height="100" align="center"><h1 th:text="'Invoice no. '+${name}"></h1></td>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr bgcolor="D0D0D0">
+    <td height="40" align="center"><h3 th:text="Seller"></h3></td>
+    <td height="40" align="center"><h3 th:text="Buyer"></h3></td>
+  </tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0">
+  <tr bgcolor="ffffff">
+    <td height="100" align="center"><h3 th:text="${sellerName}"></h3>
+      <h3 th:text="${sellerAddress}"></h3>
+      <h3 th:text="${sellerCity}"></h3>
+      <h3 th:text="${sellerZipCode}"></h3>
+      <h3 th:text="${sellerNip}"></h3>
+      <h3 th:text="${sellerBankAccountNumber}"></h3></td>
+    <td height="100" align="center"><h3 th:text="${buyerName}"></h3>
+      <h3 th:text="${buyerAddress}"></h3>
+      <h3 th:text="${buyerCity}"></h3>
+      <h3 th:text="${buyerZipCode}"></h3>
+      <h3 th:text="${buyerNip}"></h3>
+      <h3 th:text="${buyerBankAccountNumber}"></h3></td>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr bgcolor="D0D0D0">
+    <td height="50" align="center"><h2 th:text="Name"></h2></td>
+    <td height="50" align="center"><h2 th:text="Amount"></h2></td>
+    <td height="50" align="center"><h2 th:text="RetailPrice"></h2></td>
+    <td height="50" align="center"><h2 th:text="NetValue"></h2></td>
+    <td height="50" align="center"><h2 th:text="VatRate"></h2></td>
+    <td height="50" align="center"><h2 th:text="VatValue"></h2></td>
+    <td height="50" align="center"><h2 th:text="Total"></h2></td>
+  </tr>
+  <tr th:each="product: ${products}" bgcolor="ffffff">
+    <td height="50" align="center"><h2 th:text="${product.productName}"></h2></td>
+    <td height="50" align="center"><h2 th:text="${product.amount}"></h2></td>
+    <td height="50" align="center"><h2 th:text="${product.retailPrice}+zł"></h2></td>
+    <td height="50" align="center"><h2 th:text="${product.productNetValue}+zł"></h2></td>
+    <td height="50" align="center"><h2 th:text="${product.productVatRate}+'%'"></h2></td>
+    <td height="50" align="center"><h2 th:text="${product.productVatValue}+zł"></h2></td>
+    <td height="50" align="center"><h2 th:text="${product.total}+zł"></h2></td>
+  </tr>
+  <tr bgcolor="ffffff">
+    <td height="50" align="center"><h2 th:text="''"></h2></td>
+    <td height="50" bgcolor="D0D0D0" align="center"><h2 th:text="TOTAL"></h2></td>
+    <td height="50" bgcolor="F0F0F0" align="center"><h2 th:text="${totalRetailPrice}+zł"></h2></td>
+    <td height="50" bgcolor="F0F0F0" align="center"><h2 th:text="${totalNetValue}+zł"></h2></td>
+    <td height="50" align="center"><h2 th:text="''"></h2></td>
+    <td height="50" bgcolor="F0F0F0" align="center"><h2 th:text="${totalVatValue}+zł"></h2></td>
+    <td height="50" bgcolor="F0F0F0" align="center"><h2 th:text="${totalPrice}+zł"></h2></td>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="0095cc">
+  <tr>
+    <td height="50" align="center"><p>Green Team <a
+        href="https://coderstrust.pl/">coderstrust.pl</a>
+    </p></td>
+  </tr>
+</table>
+</body>
+</html>

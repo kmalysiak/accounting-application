@@ -1,0 +1,45 @@
+<ns2:invoiceGetByIdResponse xmlns:ns2="http://invoice-service.com">
+  <ns2:invoice>
+    <ns2:id>1</ns2:id>
+    <ns2:name>UpdatedInvoiceName</ns2:name>
+    <ns2:buyer>
+      <ns2:address>buyer_address_1</ns2:address>
+      <ns2:bankAccoutNumber>buyer_bankAccoutNumber_1</ns2:bankAccoutNumber>
+      <ns2:city>buyer_city_1</ns2:city>
+      <ns2:id>0</ns2:id>
+      <ns2:customerIssueDate>2019-03-01</ns2:customerIssueDate>
+      <ns2:name>buyer_name_1</ns2:name>
+      <ns2:nip>buyer_name_1</ns2:nip>
+      <ns2:personalCarUsage>false</ns2:personalCarUsage>
+      <ns2:taxType>LINEAR</ns2:taxType>
+      <ns2:zipCode>buyer_zipCode_1</ns2:zipCode>
+    </ns2:buyer>
+    <ns2:seller>
+      <ns2:address>seller_address_1</ns2:address>
+      <ns2:bankAccoutNumber>seller_bankAccoutNumber_1</ns2:bankAccoutNumber>
+      <ns2:city>seller_city_1</ns2:city>
+      <ns2:id>0</ns2:id>
+      <ns2:customerIssueDate>2019-03-01</ns2:customerIssueDate>
+      <ns2:name>seller_name_1</ns2:name>
+      <ns2:nip>seller_name_1</ns2:nip>
+      <ns2:personalCarUsage>false</ns2:personalCarUsage>
+      <ns2:taxType>LINEAR</ns2:taxType>
+      <ns2:zipCode>seller_zipCode_1</ns2:zipCode>
+    </ns2:seller>
+    <ns2:invoiceIssueDate>2019-03-01</ns2:invoiceIssueDate>
+    <ns2:paymentDate>2019-03-16</ns2:paymentDate>
+    <ns2:paymentState>NOT_PAID</ns2:paymentState>
+    <ns2:products>
+      <ns2:amount>1</ns2:amount>
+      <ns2:product>
+        <ns2:description>name_1_1_description_1</ns2:description>
+        <ns2:name>name_1_1</ns2:name>
+        <ns2:netValue>1.0</ns2:netValue>
+        <ns2:productType>OTHER</ns2:productType>
+        <ns2:vatRate>VAT_23</ns2:vatRate>
+      </ns2:product>
+    </ns2:products>
+  </ns2:invoice>
+  <ns2:errorMsg>No errors.</ns2:errorMsg>
+</ns2:invoiceGetByIdResponse>
+

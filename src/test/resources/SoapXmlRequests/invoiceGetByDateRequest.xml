@@ -1,0 +1,4 @@
+<gs:invoiceGetByDateRequest xmlns:gs="http://invoice-service.com">
+  <gs:dateFrom>2020-03-01</gs:dateFrom>
+  <gs:dateTo>2020-03-02</gs:dateTo>
+</gs:invoiceGetByDateRequest>

@@ -1,0 +1,15 @@
+<div class="companiesList">
+  <h2> Invoices </h2>
+  <ul>
+    <li *ngFor="let invoice of invoices" [routerLink]="['/detailinv/',invoice.invoiceId]">
+      <div>
+        <span>Id: </span>{{invoice.invoiceId}}</div>
+      <div>
+        <span>Name: </span>{{invoice.name}}</div>
+      <div>
+        <span>Buyer: </span>{{invoice.buyer.name}}</div>
+      <div>
+        <span>Seller: </span>{{invoice.seller.name}}</div>
+    </li>
+  </ul>
+</div>

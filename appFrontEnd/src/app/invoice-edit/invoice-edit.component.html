@@ -1,0 +1,18 @@
+<div *ngIf="invoice">
+  <h2>Selected Company</h2>
+  <div>
+    <span>Id: </span>{{invoice.invoiceId}}</div>
+  <div>
+    <span>Name: </span>{{invoice.name}}
+    <input [(ngModel)]="invoice.name" placeholder="invoice.name">
+  </div>
+  <div>
+    <span>Issue date: </span>{{invoice.issueDate}}
+    <input [(ngModel)]="invoice.issueDate" placeholder="invoice.issueDate">
+  </div>
+
+  <button (click)="edit()">edit</button>
+  
+</div>
+
+

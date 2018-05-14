@@ -1,0 +1,4 @@
+<gs:invoiceGetByIdRequest xmlns:gs="http://invoice-service.com">
+  <gs:id>2</gs:id>
+</gs:invoiceGetByIdRequest>
+

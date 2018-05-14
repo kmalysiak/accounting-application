@@ -1,0 +1,11 @@
+<div >
+  <h4>Company search by string</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <ul class="search-result">
+    <li *ngFor="let company of companies$ | async" >
+      <a routerLink="/detail/{{company.companyId}}">
+        {{company.name}}
+      </a>
+    </li>
+  </ul>
+</div>

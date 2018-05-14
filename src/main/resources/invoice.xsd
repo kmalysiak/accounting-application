@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:tns="http://invoice-service.com"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  targetNamespace="http://invoice-service.com">
+
+  <xs:element name="invoiceAddRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="invoice" type="tns:invoice"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="invoiceAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="invoiceId" type="xs:long"/>
+        <xs:element maxOccurs="unbounded" name="errorMsg" type="xs:string"/>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="invoiceGetByIdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="invoiceGetByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="invoice" type="tns:invoice"/>
+        <xs:element maxOccurs="unbounded" name="errorMsg" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="invoiceGetByDateRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="dateFrom" type="xs:string"/>
+        <xs:element name="dateTo" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="invoiceGetByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="invoiceList" type="tns:invoiceList"/>
+        <xs:element maxOccurs="unbounded" name="errorMsg" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="invoiceUpdateRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="xs:long"/>
+        <xs:element name="invoice" type="tns:invoice"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="invoiceUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="invoiceId" type="xs:long"/>
+        <xs:element maxOccurs="unbounded" name="errorMsg" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="invoiceRemoveRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="invoiceRemoveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="response" type="xs:string"/>
+        <xs:element maxOccurs="unbounded" name="errorMsg" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:complexType name="invoice">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="buyer" type="tns:company"/>
+      <xs:element name="seller" type="tns:company"/>
+      <xs:element name="invoiceIssueDate" type="xs:string"/>
+      <xs:element name="paymentDate" type="xs:string"/>
+      <xs:element name="paymentState" type="tns:paymentState"/>
+      <xs:element maxOccurs="unbounded" name="products" type="tns:invoiceEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="invoiceList">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="invoice" type="tns:invoice"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="company">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="xs:string"/>
+      <xs:element minOccurs="0" name="bankAccoutNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="city" type="xs:string"/>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="customerIssueDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="nip" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="payments" nillable="true"
+        type="tns:payment"/>
+      <xs:element name="personalCarUsage" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="taxType" type="tns:taxType"/>
+      <xs:element minOccurs="0" name="zipCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="payment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="amount" type="xs:decimal"/>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element minOccurs="0" name="paymentIssueDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="type" type="tns:paymentType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="invoiceEntry">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:int"/>
+      <xs:element minOccurs="0" name="product" type="tns:product"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="netValue" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="productType" type="tns:productType"/>
+      <xs:element minOccurs="0" name="vatRate" type="tns:vat"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="paymentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PENSION_INSURANCE"/>
+      <xs:enumeration value="HEALTH_INSURANCE"/>
+      <xs:enumeration value="INCOME_TAX_ADVANCE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="taxType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LINEAR"/>
+      <xs:enumeration value="PROGRESIVE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="paymentState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PAID"/>
+      <xs:enumeration value="NOT_PAID"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="productType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CAR"/>
+      <xs:enumeration value="OFFICE"/>
+      <xs:enumeration value="ELECTRIONICS"/>
+      <xs:enumeration value="CLEANERS"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="vat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VAT_23"/>
+      <xs:enumeration value="VAT_8"/>
+      <xs:enumeration value="VAT_5"/>
+      <xs:enumeration value="VAT_0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

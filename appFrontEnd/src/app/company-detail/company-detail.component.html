@@ -1,0 +1,29 @@
+<div class="companyList" *ngIf="company">
+  <h2>Company Details</h2>
+  <div>
+    <span>Id: </span>{{company.companyId}}</div>
+  <div>
+    <span>Name: </span>{{company.name}}</div>
+  <div>
+    <span>Issue date: </span>{{company.issueDate}}</div>
+  <div>
+    <span>Address: </span>{{company.address}}</div>
+  <div>
+    <span>City: </span>{{company.city}}</div>
+  <div>
+    <span>Zip code: </span>{{company.zipCode}}</div>
+  <div>
+    <span>Nip: </span>{{company.nip}}</div>
+  <div>
+    <span>Bank account number: </span>{{company.bankAccoutNumber}}</div>
+  <div>
+    <span>Tax type: </span>{{company.taxType}}</div>
+  <div>
+    <span>Personal car usage: </span>{{company.personalCarUsage}}</div>
+  <a [routerLink]="['/companyEdit/',company.companyId]">
+    <button> Edit Company</button>
+  </a>
+
+  <button (click)="delete()"> Delete Company</button>
+
+</div>

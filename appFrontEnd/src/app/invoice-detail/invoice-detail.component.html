@@ -1,0 +1,22 @@
+<div  *ngIf="invoice">
+  <h2>Invoice Details</h2>
+  <div>
+    <span>Id: </span>{{invoice.invoiceId}}</div>
+  <div>
+    <span>Name: </span>{{invoice.name}}</div>
+  <div>
+    <span>Issue date: </span>{{invoice.issueDate}}</div>
+  <div>
+    <span>Payment date: </span>{{invoice.paymentDate}}</div>
+  <div>
+    <span>Buyer: </span>{{invoice.buyer.name}}</div>
+  <div>
+    <span>Seller: </span>{{invoice.seller.name}}</div>
+ 
+<a [routerLink]="['/invoiceEdit/',invoice.invoiceId]">
+  <button> Edit Invoice</button>
+</a>
+
+<button (click)="delete()"> Delete Invoice</button>
+
+</div>

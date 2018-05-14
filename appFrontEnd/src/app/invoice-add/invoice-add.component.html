@@ -1,0 +1,27 @@
+<div ng-controller="invoiceAdd">
+  <h2>
+    Add Invoice</h2>
+
+  <div>
+    <span>Name: </span>
+    <input type="text" id="name" required [(ngModel)]="invoice.name" name="name">
+  </div>
+  <div>
+    <span>Issue date: </span>
+    <input type="text" id="name" required [(ngModel)]="invoice.issueDate" name="name">
+  </div>
+  <div>
+    <span>Payment date: </span>
+    <input type="text" id="name" required [(ngModel)]="invoice.paymentDate" name="name">
+  </div>
+  <div>
+    <span>Buyer company id: </span>
+    <input type="text" id="buyerId" required [(ngModel)]="buyerId" name="buyer.companyId">
+  </div>
+  <div>
+    <span>Seller company id: </span>
+    <input id="name" type="text" required [(ngModel)]="sellerId" name="seller.companyId">
+  </div>
+</div>
+<button (click)="fetchCompanies()">Fetch Companies</button>
+<button (click)="add(invoice)">Add Invoice</button>

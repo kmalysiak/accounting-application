@@ -1,0 +1,7 @@
+.idea/
+out/
+target/
+*.iml
+*.log
+src/main/java/pl/coderstrust/service/soap/bindingClasses/*
+**/*.log

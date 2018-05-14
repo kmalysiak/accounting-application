@@ -1,0 +1,46 @@
+<div *ngIf="company">
+  <h2>Selected Company</h2>
+  <div>
+    <span>Id: </span>{{company.companyId}}</div>
+  <div>
+    <span>Name: </span>{{company.name}}
+    <input [(ngModel)]="company.name" placeholder="company.name">
+  </div>
+  <div>
+    <span>Issue date: </span>{{company.issueDate}}
+    <input [(ngModel)]="company.issueDate" placeholder="company.issueDate">
+  </div>
+  <div>
+    <span>Address: </span>{{company.address}}
+    <input [(ngModel)]="company.address" placeholder="company.address">
+  </div>
+  <div>
+    <span>City: </span>{{company.city}}
+    <input [(ngModel)]="company.city" placeholder="company.city">
+  </div>
+  <div>
+    <span>Zip code: </span>{{company.zipCode}}
+    <input [(ngModel)]="company.zipCode" placeholder="company.zipCode">
+  </div>
+  <div>
+    <span>Nip: </span>{{company.nip}}
+    <input [(ngModel)]="company.nip" placeholder="company.nip">
+  </div>
+  <div>
+    <span>Bank account number: </span>{{company.bankAccoutNumber}}
+    <input [(ngModel)]="company.bankAccoutNumber" placeholder="company.bankAccoutNumber">
+  </div>
+  <div>
+    <span>Tax type: </span>{{company.taxType}}
+    <input [(ngModel)]="company.taxType" placeholder="company.taxType">
+  </div>
+  <div>
+    <span>Personal car usage: </span>{{company.personalCarUsage}}
+    <input [(ngModel)]="company.personalCarUsage" placeholder="company.personalCarUsage">
+  </div>
+
+  <button (click)="edit()">edit</button>
+  
+</div>
+
+

@@ -1,0 +1,42 @@
+
+/* Application-wide Styles */
+h1 {
+    color: rgb(27, 105, 62);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+  }
+  h2, h3 {
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+  }
+  span {
+      color: black;
+      font-weight: bold;
+      font-family: Cambria, Georgia;
+  }
+  div {
+      margin: 2px;
+  }
+  body {
+    margin: 2em;
+    width: 100%;
+  }
+  body, input[text], button {
+    color: #888;
+    font-family: Cambria, Georgia;
+  }
+
+  button {
+    font-size: 15px;
+    color: #888;
+    font-family: Cambria, Georgia;
+  }
+
+  /* everywhere else */
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  a:link {
+    color: red;
+}
