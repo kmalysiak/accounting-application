@@ -24,7 +24,8 @@ public class LoggableDispatcherServlet extends DispatcherServlet {
     try {
       super.doDispatch(request, response);
     } finally {
-      logger.info("\nResponse Status: " + response.getStatus()
+      //TODO: check action of looger after change to status code
+      logger.info("\nResponse Status: " + ((ContentCachingResponseWrapper) response).getStatusCode()
           + " \nResponse Body: " + getResponsePayload(response));
       updateResponse(response);
     }
